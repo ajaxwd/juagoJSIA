@@ -1,19 +1,26 @@
 
 function SearchMove() {
   balls = CheckTurn_Count(1);
-  if (balls == 3) {
-    CellFind = false;
+  if (balls > 1){
 
-    while (CellFind == false) {
-      x = Math.round(Math.random()*2);
-      y = Math.round(Math.random()*2);
-      if (board[x][y] == 1) CellFind = true;
+    if (balls == 3) {
+      CellFind = false;
+
+      while (CellFind == false) {
+        x = Math.round(Math.random()*2);
+        y = Math.round(Math.random()*2);
+        if (board[x][y] == 1 && CheckBlock(x, y) == false) CellFind = true;
+      }
+      Ball_Sellected_x = x;
+      Ball_Sellected_y = y;
+      ClearCell(x, y);
     }
-    Ball_Sellected_x = x;
-    Ball_Sellected_y = y;
-    ClearCell(x, y);
+    RandomMove();
   }
-  RandomMove();
+  else{
+    RandomMove();
+  }
+
 }
 
 function RandomMove(){

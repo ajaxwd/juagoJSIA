@@ -12,7 +12,15 @@ function CheckColumn(y, value) {
   }
   return count_value;
 }
+function CheckDiag(d, value) {
+  count_value = 0;
 
+  if (board[(1+d)][0] == value) count_value++;
+  if (board[1][1] == value) count_value++;
+  if (board[(1-d)][2] == value) count_value++;
+
+  return count_value;
+}
 function CheckLine() {
   if (turn == "ball") value = 1;
   else value = 2;
@@ -23,6 +31,8 @@ function CheckLine() {
   if(CheckColumn(0, value) == 3) alert(turn + " ha ganado");
   if(CheckColumn(1, value) == 3) alert(turn + " ha ganado");
   if(CheckColumn(2, value) == 3) alert(turn + " ha ganado");
+  if(CheckDiag(1, value) == 3) alert(turn + " ha ganado");
+  if(CheckDiag(-1, value) == 3) alert(turn + " ha ganado");
 
 }
 
@@ -49,4 +59,16 @@ function DifMov(x, y){
   }
 
   return diferent;
+}
+function CheckBlock(x,y) {
+  if (CheckRow(y, 1) == 1 && CheckRow(y, 2) == 2) return true;
+  if (CheckColumn(x, 1) == 1 && CheckColumn(x, 2) == 2) return true;
+  if ((x==0 && y==2) || (x==1 && y==1) || (x==2 && y==0)){
+    if (CheckDiag(1,1) == 1 && CheckDiag(1,2) == 2) return true;
+  }
+  if ((x==0 && y==0) || (x==1 && y==1) || (x==2 && y==2)){
+    if (CheckDiag(-1,1) == 1 && CheckDiag(-1,2) == 2) return true;
+  }
+
+  return false;
 }
