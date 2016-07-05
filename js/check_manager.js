@@ -5,6 +5,7 @@ function CheckRow(x, value) {
   }
   return count_value;
 }
+
 function CheckColumn(y, value) {
   count_value = 0;
   for (i = 0; i < 3; i++) {
@@ -12,6 +13,7 @@ function CheckColumn(y, value) {
   }
   return count_value;
 }
+
 function CheckDiag(d, value) {
   count_value = 0;
 
@@ -24,16 +26,18 @@ function CheckDiag(d, value) {
 function CheckLine() {
   if (turn == "ball") value = 1;
   else value = 2;
+  Line = false;
 
-  if(CheckRow(0, value) == 3) alert(turn + " ha ganado");
-  if(CheckRow(1, value) == 3) alert(turn + " ha ganado");
-  if(CheckRow(2, value) == 3) alert(turn + " ha ganado");
-  if(CheckColumn(0, value) == 3) alert(turn + " ha ganado");
-  if(CheckColumn(1, value) == 3) alert(turn + " ha ganado");
-  if(CheckColumn(2, value) == 3) alert(turn + " ha ganado");
-  if(CheckDiag(1, value) == 3) alert(turn + " ha ganado");
-  if(CheckDiag(-1, value) == 3) alert(turn + " ha ganado");
+  if(CheckRow(0, value) == 3) Line = true;
+  if(CheckRow(1, value) == 3) Line = true;
+  if(CheckRow(2, value) == 3) Line = true;
+  if(CheckColumn(0, value) == 3) Line = true;
+  if(CheckColumn(1, value) == 3) Line = true;
+  if(CheckColumn(2, value) == 3) Line = true;
+  if(CheckDiag(1, value) == 3) Line = true;
+  if(CheckDiag(-1, value) == 3) Line = true;
 
+  if(Line == true) ShowMessage(value);
 }
 
 function CheckTurn_Count(turn_value) {
@@ -60,6 +64,7 @@ function DifMov(x, y){
 
   return diferent;
 }
+
 function CheckBlock(x,y) {
   if (CheckRow(y, 1) == 1 && CheckRow(y, 2) == 2) return true;
   if (CheckColumn(x, 1) == 1 && CheckColumn(x, 2) == 2) return true;

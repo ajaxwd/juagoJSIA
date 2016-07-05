@@ -56,3 +56,54 @@ body{
   top: 5%;
   left: 5%;
 }
+
+#message{
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(250, 248, 239, 0.6);
+  display: block;
+}
+
+#message p#notification{
+  font-size: 6em;
+  font-weight: bolder;
+  color: #1B190f;
+  margin-top: 30px;
+  text-shadow: 1px 1px 1px rgb(250, 248, 239),
+  -1px -1px 1px rgb(250, 248, 239);
+}
+
+#share_panel{
+  display: block;
+  text-align: center;
+}
+
+#button{
+  font-size: 2.5em;
+  font-weight: bolder;
+  background-color: #1B190f;
+  border-radius: 20px 20px 0px 0px;
+  color: rgb(250, 248, 239);
+  margin-top: -50px;
+  width: 70%;
+  margin-left: 15%;
+  line-height: 80px;
+}
+
+#button:hover{
+  cursor: pointer;
+}
+
+#tweet_game{
+  background-color: #1B190f;
+  border-radius: 0px 0px 20px 20px;
+  color: rgb(250, 248, 239);
+  width: 70%;
+  margin-left: 15%;
+  margin-top: -40px;
+  padding: 10px 0px 20px 0px;
+  text-align: center;
+}

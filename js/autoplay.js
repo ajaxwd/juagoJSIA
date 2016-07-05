@@ -36,7 +36,7 @@ function PaintCell(x, y) {
   }
 
   CheckLine();
-  
+
   if (turn == "ball") turn = "cross";
   else turn = "ball";
 
@@ -62,6 +62,8 @@ function SelectCell(x ,y) {
 
 function autoplay(){
 
+  hide_message();
+  
   for (var i = 0; i < 3; i++) board[i] = new Array(3);
 
   turn = "ball";
